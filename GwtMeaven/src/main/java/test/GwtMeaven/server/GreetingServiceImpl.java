@@ -19,16 +19,16 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
       throw new IllegalArgumentException(
           "Name must be at least 4 characters long");
     }
-
+    System.out.println("zapisano klienta");
     String serverInfo = getServletContext().getServerInfo();
     String userAgent = getThreadLocalRequest().getHeader("User-Agent");
 
-    // Escape data from the client to avoid cross-site script vulnerabilities.
+    // Escape data from the cl	ient to avoid cross-site script vulnerabilities.
     input = escapeHtml(input);
     userAgent = escapeHtml(userAgent);
-
+    
     return "Hello, " + input + "!<br><br>I am running " + serverInfo
-        + ".<br><br>It looks like you are using:<br>" + userAgent;
+        + ".<br><br>It looks like you are using:<br>" + userAgent ;
   }
 
   /**
@@ -40,8 +40,12 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
    */
   private String escapeHtml(String html) {
     if (html == null) {
+    	
+    	
       return null;
+      
     }
+    
     return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(
         ">", "&gt;");
   }

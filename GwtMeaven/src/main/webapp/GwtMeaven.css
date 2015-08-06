@@ -19,7 +19,13 @@ h1 {
 .gwt-DialogBox {
   width: 400px;
 }
-
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: small;
+    margin: 8px;
+}
 .dialogVPanel {
   margin: 5px;
 }
